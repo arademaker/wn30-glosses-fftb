@@ -6,7 +6,7 @@ sample of WN glosses using the https://github.com/own-pt/own-en.
 awk '$0 ~ /^d:/ {out=sub(/d:[ ]+/,""); print $0}' ~/work/wn/own-en/src/* | shuf -n 200 > sample-200.txt
 #+END_SRC
 
-In the docker 
+In the docker (https://github.com/own-pt/docker-delphin)
 
 #+BEGIN_SRC 
 ace -G terg.dat -g ~/terg/ace/config.tdl
@@ -14,7 +14,9 @@ mkprof -r ~/logon/lingo/lkb/src/tsdb/skeletons/english/Relations -i sample-200.t
 art -f -a 'ace --disable-generalization -g terg.dat -O' sample-200
 #+END_SRC
 
-profile creation (didn't work)
+profile creation with pydelphin: 
+
+(didn't work)
 
 #+BEGIN_SRC zsh
 delphin mkprof --input sample-200.txt --relations ~/hpsg/logon/lingo/lkb/src/tsdb/skeletons/english/Relations --skeleton sample-200
