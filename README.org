@@ -1,5 +1,9 @@
 
 
+Note that grammar must be compiled to Linux and Mac. We can't use the
+same compiled grammar with ACE in different operational systems.
+
+
 sample of WN glosses using the https://github.com/own-pt/own-en. 
 
 #+BEGIN_SRC zsh
@@ -16,9 +20,9 @@ art -f -a 'ace --disable-generalization -g terg.dat -O' sample-200
 
 profile creation with pydelphin: 
 
-(didn't work)
-
-#+BEGIN_SRC zsh
-delphin mkprof --input sample-200.txt --relations ~/hpsg/logon/lingo/lkb/src/tsdb/skeletons/english/Relations --skeleton sample-200
+#+BEGIN_SRC 
+ace -G terg-mac.dat -g ~/hpsg/terg/ace/config.tdl
+delphin mkprof --input sample-200.txt --relations ~/hpsg/logon/lingo/lkb/src/tsdb/skeletons/english/Relations --skeleton sample-200-py
+python process-fftb.py
 #+END_SRC
 
